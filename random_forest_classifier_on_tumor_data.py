@@ -64,3 +64,19 @@ print("Score: ",rf.score(x_test,y_test))
 #Score:  0.9532163742690059
 
 #As it is seen that we get higher accuracy with Random Forest Classifier than Decision Tree Classifier
+#%%
+#Confusion Matrix
+y_true = y_test
+y_pred = rf.predict(x_test)
+
+from sklearn.metrics import confusion_matrix
+
+cm = confusion_matrix(y_true, y_pred)
+
+#Visualization of cm
+
+f,ax = plt.subplots(figsize = (5,5))
+sns.heatmap(cm,annot = True, linewidths = 0.5, linecolor = "red", fmt = ".0f", ax=ax)
+plt.xlabel("y_pred")
+plt.ylabel("y_true")
+plt.show()
